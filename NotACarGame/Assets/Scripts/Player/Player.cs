@@ -8,25 +8,33 @@ public class Player : MonoBehaviour
     private AudioSource audio;
     public AudioClip damageClip;
     public Player enemy;
-    public float speed = 5;
+
+    public float baseMoveSpeed = 5;
+    private float speed;
     public int teamNumber = 1;
     public float endLag = 0;
+    public float maxEndLag = 0;//For use by HUD
     public Vector2 facingDirection;
     public int healthPoints = 10;
     private GameObject projectiles;
     public Projectile projectile;
 
     public ArrayList abilities = new ArrayList();
-
+    private Sprite playerFlash;
+    private Sprite defaultSprite;
     // Use this for initialization
     void Start()
     {
+        speed = baseMoveSpeed;
         abilities.Add(new Ability(Ability.AbilityType.ParallelGun));
         abilities.Add(new Ability(Ability.AbilityType.QuickGun));
         abilities.Add(new Ability(Ability.AbilityType.XGun));
         abilities.Add(new Ability(Ability.AbilityType.DoubleShotGun));
         audio = GetComponent<AudioSource>();
         projectiles = GameObject.Find("Projectiles");
+
+        playerFlash = Resources.Load<Sprite>("Sprites/playerFlash") as Sprite;
+        defaultSprite = GetComponent<SpriteRenderer>().sprite;
     }
 
     // Update is called once per frame
@@ -59,9 +67,9 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector2(0 + radius, transform.position.y);
         }
-        if(transform.position.y > 10 - radius)
+        if(transform.position.y > 7.5f - radius)
         {
-            transform.position = new Vector2(transform.position.x, 10 - radius);
+            transform.position = new Vector2(transform.position.x, 7.5f - radius);
         }
         else if (transform.position.y < 0 + radius)
         {
@@ -71,7 +79,7 @@ public class Player : MonoBehaviour
     }
     void Attack()
     {
-        foreach (Ability ability in abilities)
+        foreach (Ability ability in abilities)//Attempts to use each ability in order
         {
             int num = abilities.IndexOf(ability) + 1;
 
@@ -104,11 +112,38 @@ public class Player : MonoBehaviour
             {
                 healthPoints = healthPoints - projectile.damage;
                 audio.PlayOneShot(damageClip);
+
+                //invincibility v
+                CancelInvoke("PlayerFlash");
+                invincibility = true;
+                flashCount = 0;
+                speed = baseMoveSpeed * 1.5f;
+                InvokeRepeating("PlayerFlash", 0, 0.1f);
+                // ^
                 Destroy(projectile.gameObject);
             }
         }
     }
-
+    int flashCount = 0;
+    bool invincibility = false;
+    public void PlayerFlash()
+    {
+        if (GetComponent<SpriteRenderer>().sprite != playerFlash)
+        {
+            GetComponent<SpriteRenderer>().sprite = playerFlash;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sprite = defaultSprite;
+            flashCount++;
+        }
+        if (flashCount > 5)
+        {
+            CancelInvoke("PlayerFlash");
+            invincibility = false;
+            speed = baseMoveSpeed;
+        }
+    }
     public void MakeNewProjectile(string name, Vector2 offset, float speed, float rotation, int damage, Projectile.Type type)
     {
         Projectile newProjectile = Instantiate(projectile);
@@ -132,8 +167,15 @@ public class Ability
         QuickGun,
         ParallelGun,
         XGun,
-        DoubleShotGun
+        DoubleShotGun,
+        //new:
+        CircleGun,
+        Blink,
+        Shrink,
+        Sprint,
+        ProjectileDestroy
     };
+    public Sprite abilityIcon;
     public int maxChargesAvailable;
     public int chargesAvailable;
     public float maxChargeReplenishCooldown;
@@ -152,24 +194,29 @@ public class Ability
                 maxChargesAvailable = 20;
                 maxChargeReplenishCooldown = 0.5f;
                 abilityEndLag = 0.1f;
+                abilityIcon = Resources.Load<Sprite>("Sprites/quickGunAbilityIcon") as Sprite;
                 break;
             case AbilityType.ParallelGun:
                 maxChargesAvailable = 6;
-                maxChargeReplenishCooldown = 2f;
+                maxChargeReplenishCooldown = 2.5f;
                 abilityEndLag = 1f;
+                abilityIcon = Resources.Load<Sprite>("Sprites/parallelGunAbilityIcon") as Sprite;
                 break;
             case AbilityType.XGun:
                 maxChargesAvailable = 3;
                 maxChargeReplenishCooldown = 2f;
                 abilityEndLag = 0.9f;
+                abilityIcon = Resources.Load<Sprite>("Sprites/xGunAbilityIcon") as Sprite;
                 break;
             case AbilityType.DoubleShotGun:
                 maxChargesAvailable = 4;
                 maxChargeReplenishCooldown = 3f;
                 abilityEndLag = 1f;
+                abilityIcon = Resources.Load<Sprite>("Sprites/doubleShotGunAbilityIcon") as Sprite;
                 break;
         }
         chargesAvailable = maxChargesAvailable;
+        chargeReplenishCooldown = maxChargeReplenishCooldown;
     }
 
 
@@ -197,6 +244,7 @@ public class Ability
             {
                 player.MakeNewProjectile("ProjectileQuickGun", Vector2.zero, 5, 0, 1, Projectile.Type.Standard);
                 player.endLag = abilityEndLag;
+                player.maxEndLag = abilityEndLag;
                 chargesAvailable--;
             }
         }
@@ -211,6 +259,7 @@ public class Ability
             {
                 numberOfWaves = 5;
                 player.endLag = abilityEndLag;
+                player.maxEndLag = abilityEndLag;
                 chargesAvailable--;
             }
         }
@@ -243,6 +292,7 @@ public class Ability
 
                 player.MakeNewProjectile("ProjectileXGun", Vector2.zero, 3, -70, 1, Projectile.Type.XGunRight);
                 player.endLag = abilityEndLag;
+                player.maxEndLag = abilityEndLag;
                 chargesAvailable--;
             }
         }
@@ -256,6 +306,7 @@ public class Ability
             {
                 numberOfWaves = 2;
                 player.endLag = abilityEndLag;
+                player.maxEndLag = abilityEndLag;
                 chargesAvailable--;
             }
 

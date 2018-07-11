@@ -8,6 +8,10 @@ public class ProjectileSpawner : MonoBehaviour {
     private float attackDuration = 0;
     private float waveDelay = 0;
     private int attackType;
+
+    private float screenHeight = 7.5f;
+    private float screenWidth = 16;
+
     // Use this for initialization
     void Start () {
 		
@@ -28,44 +32,44 @@ public class ProjectileSpawner : MonoBehaviour {
                 if (attackType == 0)//leftScreen
                 {
 
-                    //x: 0 -> 8
-                    //y: 0 || 10
+                    //x: 0 -> ScreenWidth/2
+                    //y: 0 || ScreenHeight
                     for (int i = 0; i < 4; i++)
                     {
-                        float xValue = (Random.Range(0f, 8f));
+                        float xValue = (Random.Range(0f, screenWidth/2));
                         int o = i % 2; //When o = 0 it shoots from bellow, when 1 it shoots from above
                         MakeNewProjectile("NeutStandardProjectile", new Vector2(xValue, 10 * o), 3, 180 * o, 1, Projectile.Type.Standard);
                     }
                 }
                 else if (attackType == 1)//rightScreen
                 {
-                    //x: 8 -> 16
-                    //y: 0 || 10
+                    //x: screenWidth/2 -> screenWidth
+                    //y: 0 || screenHeight
                     for (int i = 0; i < 4; i++)
                     {
-                        float xValue = (Random.Range(8f, 16f));
+                        float xValue = (Random.Range(screenWidth/2, screenWidth));
                         int o = i % 2; //When o = 0 it shoots from bellow, when 1 it shoots from above
                         MakeNewProjectile("NeutStandardProjectile", new Vector2(xValue, 10 * o), 3, 180 * o, 1, Projectile.Type.Standard);
                     }
                 }
                 if (attackType == 2)//bottomScreen
                 {
-                    //x: 0 || 16
-                    //y: 0 -> 5
+                    //x: 0 || screenWidth
+                    //y: 0 -> screenHeight/2
                     for (int i = 0; i < 4; i++)
                     {
-                        float yValue = (Random.Range(0f, 5f));
+                        float yValue = (Random.Range(0f, screenHeight/2));
                         int o = i % 2; //When o = 0 it shoots from bellow, when 1 it shoots from above
                         MakeNewProjectile("NeutStandardProjectile", new Vector2(16 * o, yValue), 3, -90 + 180 * o, 1, Projectile.Type.Standard);
                     }
                 }
                 else if (attackType == 3)//topScreen
                 {
-                    //x: 0 || 16
-                    //y: 5 -> 10
+                    //x: 0 || screenWidth
+                    //y: screenHeight/2 -> screenHeight
                     for (int i = 0; i < 4; i++)
                     {
-                        float yValue = (Random.Range(5f, 10f));
+                        float yValue = (Random.Range(screenHeight/2, screenHeight));
                         int o = i % 2; //When o = 0 it shoots from bellow, when 1 it shoots from above
                         MakeNewProjectile("NeutStandardProjectile", new Vector2(16*o, yValue), 3, -90 + 180 * o, 1, Projectile.Type.Standard);
                     }

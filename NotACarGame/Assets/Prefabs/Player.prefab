@@ -78,7 +78,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.25
 --- !u!82 &82718105388423252
 AudioSource:
   m_ObjectHideFlags: 1
@@ -90,7 +90,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -187,9 +187,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageClip: {fileID: 8300000, guid: 42866568ef167a543b312a2af78b62ce, type: 3}
   enemy: {fileID: 0}
-  speed: 5
+  baseMoveSpeed: 5
   teamNumber: 1
-  healthPoints: 1000
+  endLag: 0
+  facingDirection: {x: 0, y: 0}
+  healthPoints: 10
   projectile: {fileID: 0}
 --- !u!212 &212997445364505408
 SpriteRenderer:
