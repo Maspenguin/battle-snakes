@@ -5,36 +5,81 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class Player : MonoBehaviour
 {
+    //Cyborg Phantom Battle Snakes
     private AudioSource audio;
     public AudioClip damageClip;
     public Player enemy;
 
     public float baseMoveSpeed = 5;
-    private float speed;
+    public float speed;
+    public Vector2 rawVelocity;//Velocity from input, does not take into account speed
     public int teamNumber = 1;
-    public float endLag = 0;
-    public float maxEndLag = 0;//For use by HUD
+    public float endLag = 1;
+    public float maxEndLag;//For use by HUD
     public Vector2 facingDirection;
     public int healthPoints = 10;
-    private GameObject projectiles;
-    public Projectile projectile;
-
+    private GameObject projectiles; //Used to organise the projectiles spawned by the player
+    private Projectile projectilePrefab; //Prefab to be used by the projectile?
+    private Trail trailPrefab;
+   
     public ArrayList abilities = new ArrayList();
+
+    public string characterName;
     private Sprite playerFlash;
-    private Sprite defaultSprite;
-    // Use this for initialization
-    void Start()
+    private Sprite playerSprite;
+    private Sprite trailSprite;
+
+    private void Awake()
     {
-        speed = baseMoveSpeed;
         abilities.Add(new Ability(Ability.AbilityType.ParallelGun));
         abilities.Add(new Ability(Ability.AbilityType.QuickGun));
         abilities.Add(new Ability(Ability.AbilityType.XGun));
         abilities.Add(new Ability(Ability.AbilityType.DoubleShotGun));
+        abilities.Add(new Ability(Ability.AbilityType.Shrink));
+    }
+
+    void Start()
+    {
+        print("this1");
+        projectilePrefab = Resources.Load("Prefabs/Projectile", typeof(Projectile)) as Projectile;
+        trailPrefab = Resources.Load("Prefabs/Trail", typeof(Trail)) as Trail;
+        speed = baseMoveSpeed;
+
         audio = GetComponent<AudioSource>();
         projectiles = GameObject.Find("Projectiles");
 
-        playerFlash = Resources.Load<Sprite>("Sprites/playerFlash") as Sprite;
-        defaultSprite = GetComponent<SpriteRenderer>().sprite;
+        playerFlash = Resources.Load<Sprite>("Sprites/PlayerFlash") as Sprite;
+
+        playerSprite = Resources.Load<Sprite>("Sprites/"+ characterName) as Sprite;
+        GetComponent<SpriteRenderer>().sprite = playerSprite;
+
+        trailSprite = Resources.Load<Sprite>("Sprites/"+ characterName +"Trail") as Sprite;
+        GameObject player1Full = GameObject.Find("Player1Full");
+        GameObject player2Full = GameObject.Find("Player2Full");
+        Transform prevTransform = transform;
+        for (int i = 0; i < 20; i++)
+        {
+            Trail newTrail = Instantiate(trailPrefab);
+            newTrail.parent = prevTransform;
+            prevTransform = newTrail.transform;
+
+            if (teamNumber == 1)
+            {
+                newTrail.transform.parent = player1Full.transform;
+            }
+            else
+            {
+                newTrail.transform.parent = player2Full.transform;
+            }
+            newTrail.gameObject.name = teamNumber + "Trail" + i;
+            newTrail.teamNumber = teamNumber;
+            newTrail.GetComponent<SpriteRenderer>().sprite = trailSprite;
+            newTrail.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f);
+            newTrail.transform.position = new Vector3(transform.position.x+i*0.35f, transform.position.y, 0.1f);
+            //newTrail.player = transform; //Used for alternate movement
+            //newTrail.trailNum = i+1;//Used for alternate movement
+            //Setlocation!
+        }
     }
 
     // Update is called once per frame
@@ -52,22 +97,22 @@ public class Player : MonoBehaviour
         //move
         float vertical = Input.GetAxisRaw("P" + teamNumber + "Vertical");
         float horizontal = Input.GetAxisRaw("P" + teamNumber + "Horizontal");
-        Vector2 rawVelocity = new Vector2(horizontal, vertical);
+        rawVelocity = new Vector2(horizontal, vertical);
         rawVelocity = Vector2.ClampMagnitude(rawVelocity, 1);
 
         transform.Translate(speed * rawVelocity * Time.deltaTime, Space.Self);
 
         //Walls v
         float radius = GetComponent<CircleCollider2D>().radius;
-        if(transform.position.x > 16 - radius)
+        if (transform.position.x > 16 - radius)
         {
-            transform.position = new Vector2 (16 - radius, transform.position.y);
+            transform.position = new Vector2(16 - radius, transform.position.y);
         }
         else if (transform.position.x < 0 + radius)
         {
             transform.position = new Vector2(0 + radius, transform.position.y);
         }
-        if(transform.position.y > 7.5f - radius)
+        if (transform.position.y > 7.5f - radius)
         {
             transform.position = new Vector2(transform.position.x, 7.5f - radius);
         }
@@ -77,6 +122,7 @@ public class Player : MonoBehaviour
         }
         //^
     }
+
     void Attack()
     {
         foreach (Ability ability in abilities)//Attempts to use each ability in order
@@ -98,6 +144,10 @@ public class Player : MonoBehaviour
                 case Ability.AbilityType.DoubleShotGun:
                     ability.DoubleShotGun("P" + teamNumber + "Fire" + num, this);
                     break;
+                case Ability.AbilityType.Shrink:
+                    ability.Shrink("P" + teamNumber + "Fire" + num, this);
+                    break;
+                //todo: add more ability calls
             }
         }
         endLag -= Time.deltaTime;
@@ -107,46 +157,47 @@ public class Player : MonoBehaviour
     {
         if (trigger.gameObject.CompareTag("Projectile"))
         {
-            Projectile projectile = trigger.gameObject.GetComponent<Projectile>();
+            Projectile projectile = trigger.GetComponent<Projectile>();
             if (projectile.teamNumber != teamNumber)
             {
                 healthPoints = healthPoints - projectile.damage;
                 audio.PlayOneShot(damageClip);
 
-                //invincibility v
-                CancelInvoke("PlayerFlash");
-                invincibility = true;
-                flashCount = 0;
-                speed = baseMoveSpeed * 1.5f;
-                InvokeRepeating("PlayerFlash", 0, 0.1f);
-                // ^
+                PlayerFlash();
+
+                //speedboost:
+                //speed = baseMoveSpeed * 1.5f;
                 Destroy(projectile.gameObject);
             }
         }
+        if (trigger.gameObject.CompareTag("Trail"))
+        {
+            Trail trail = trigger.GetComponent<Trail>();
+            if (trail.teamNumber != teamNumber)
+            {
+                healthPoints = healthPoints - trail.damage;
+                audio.PlayOneShot(damageClip);
+
+                PlayerFlash();
+            }
+        }
     }
-    int flashCount = 0;
-    bool invincibility = false;
+
     public void PlayerFlash()
     {
-        if (GetComponent<SpriteRenderer>().sprite != playerFlash)
-        {
-            GetComponent<SpriteRenderer>().sprite = playerFlash;
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().sprite = defaultSprite;
-            flashCount++;
-        }
-        if (flashCount > 5)
-        {
-            CancelInvoke("PlayerFlash");
-            invincibility = false;
-            speed = baseMoveSpeed;
-        }
+        CancelInvoke("PlayerFlashOff");
+        GetComponent<SpriteRenderer>().sprite = playerFlash;
+        Invoke("PlayerFlashOff", 0.1f);
     }
-    public void MakeNewProjectile(string name, Vector2 offset, float speed, float rotation, int damage, Projectile.Type type)
+
+    public void PlayerFlashOff()
     {
-        Projectile newProjectile = Instantiate(projectile);
+        GetComponent<SpriteRenderer>().sprite = playerSprite;
+    }
+
+    public Projectile MakeNewProjectile(string name, Vector2 offset, float speed, float rotation, int damage, Projectile.Type type)
+    {
+        Projectile newProjectile = Instantiate(projectilePrefab);
         newProjectile.transform.parent = projectiles.transform;
         newProjectile.gameObject.name = teamNumber + name;
         newProjectile.transform.position = transform.position;
@@ -156,8 +207,9 @@ public class Player : MonoBehaviour
         newProjectile.teamNumber = teamNumber;
         newProjectile.damage = damage;
         newProjectile.type = type;
+        return newProjectile;
     }
-    
+
 }
 
 public class Ability
@@ -168,12 +220,13 @@ public class Ability
         ParallelGun,
         XGun,
         DoubleShotGun,
+        Shrink,
         //new:
         CircleGun,
-        Blink,
-        Shrink,
+        Dash,//Dash with a small ammount of invincibility
         Sprint,
         ProjectileDestroy
+        //todo: add more ability types
     };
     public Sprite abilityIcon;
     public int maxChargesAvailable;
@@ -183,6 +236,7 @@ public class Ability
     public float abilityEndLag;
     private int numberOfWaves = 0;
     private float waveDelay = 0;
+    private float abilityDuration = 0; //Used for abilities such as shrink
     public AbilityType abilityType;
 
     public Ability(AbilityType abilityType)
@@ -214,6 +268,12 @@ public class Ability
                 abilityEndLag = 1f;
                 abilityIcon = Resources.Load<Sprite>("Sprites/doubleShotGunAbilityIcon") as Sprite;
                 break;
+            case AbilityType.Shrink:
+                maxChargesAvailable = 5;
+                maxChargeReplenishCooldown = 3;
+                abilityIcon = Resources.Load<Sprite>("Sprites/shrinkAbilityIcon") as Sprite;
+                break;
+                //todo: add more ability constructors
         }
         chargesAvailable = maxChargesAvailable;
         chargeReplenishCooldown = maxChargeReplenishCooldown;
@@ -231,7 +291,7 @@ public class Ability
                 chargeReplenishCooldown = maxChargeReplenishCooldown;
             }
         }
-        
+
     }
 
     //Abilities
@@ -255,7 +315,7 @@ public class Ability
         if (Input.GetButton(button) == true)
         {
 
-            if (player.endLag <= 0 &&  0 < chargesAvailable)
+            if (player.endLag <= 0 && 0 < chargesAvailable)
             {
                 numberOfWaves = 5;
                 player.endLag = abilityEndLag;
@@ -333,6 +393,28 @@ public class Ability
                 numberOfWaves -= 1;
             }
             waveDelay -= Time.deltaTime;
+        }
+    }
+
+    public void Shrink(string button, Player player)
+    {
+        if (Input.GetButton(button) == true)
+        {
+            if(0 < chargesAvailable && abilityDuration <= 0)
+            {
+                abilityDuration = 1;
+                chargesAvailable--;
+                MonoBehaviour.print("blah2");
+            }
+        }
+        if (abilityDuration > 0)
+        {
+            player.transform.localScale = new Vector3(0.5f, 0.5f, 0);
+            abilityDuration -= Time.deltaTime;
+        }
+        else
+        {
+            player.transform.localScale = new Vector3(1f, 1f, 0);      
         }
     }
 }

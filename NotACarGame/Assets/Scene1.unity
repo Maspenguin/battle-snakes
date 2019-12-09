@@ -147,94 +147,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &33867478
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1886548392635298, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_Name
-      value: Player1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786213066132458, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: enemy
-      value: 
-      objectReference: {fileID: 54392616}
-    - target: {fileID: 114786213066132458, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 114028676775518976, guid: 8ae3aeea460a3ef4cbdeee492d112389,
-        type: 2}
-    - target: {fileID: 58457228126062586, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: m_Radius
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 212997445364505408, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212997445364505408, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212997445364505408, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212997445364505408, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 82718105388423252, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: m_Volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
-  m_ParentPrefab: {fileID: 100100000, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &51956362
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,12 +181,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &54392616 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114786213066132458, guid: c5793245393f97044ae7df331b040c4b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1157994161}
-  m_Script: {fileID: 11500000, guid: f8824db0b027e654fa633e3e965e8568, type: 3}
 --- !u!1 &80694086
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,12 +395,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 98145293}
---- !u!114 &115901181 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114786213066132458, guid: c5793245393f97044ae7df331b040c4b,
-    type: 2}
-  m_PrefabInternal: {fileID: 33867478}
-  m_Script: {fileID: 11500000, guid: f8824db0b027e654fa633e3e965e8568, type: 3}
 --- !u!1 &119646156
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +406,7 @@ GameObject:
   - component: {fileID: 119646159}
   - component: {fileID: 119646158}
   m_Layer: 5
-  m_Name: Charges
+  m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -796,7 +696,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CD
+  m_Text: CH
 --- !u!222 &158571080
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1009,7 +909,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CD
+  m_Text: CH
 --- !u!222 &191936040
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1132,7 +1032,7 @@ GameObject:
   - component: {fileID: 213456644}
   - component: {fileID: 213456643}
   m_Layer: 5
-  m_Name: Charges
+  m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1428,7 +1328,7 @@ GameObject:
   - component: {fileID: 284706936}
   - component: {fileID: 284706935}
   m_Layer: 5
-  m_Name: Cooldown
+  m_Name: Charges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1866,7 +1766,7 @@ GameObject:
   - component: {fileID: 363211719}
   - component: {fileID: 363211718}
   m_Layer: 5
-  m_Name: Charges
+  m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2616,7 +2516,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CD
+  m_Text: CH
 --- !u!222 &479171057
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2736,7 +2636,7 @@ GameObject:
   - component: {fileID: 516321497}
   - component: {fileID: 516321496}
   m_Layer: 5
-  m_Name: Cooldown
+  m_Name: Charges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2952,7 +2852,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CD
+  m_Text: CH
 --- !u!222 &530147702
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3094,7 +2994,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CH
+  m_Text: CD
 --- !u!222 &540210091
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3112,7 +3012,7 @@ GameObject:
   - component: {fileID: 553670626}
   - component: {fileID: 553670625}
   m_Layer: 5
-  m_Name: Charges
+  m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3260,7 +3160,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CD
+  m_Text: CH
 --- !u!222 &554005477
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3466,7 +3366,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &556765295
 GameObject:
@@ -3547,7 +3447,7 @@ GameObject:
   - component: {fileID: 558714283}
   - component: {fileID: 558714282}
   m_Layer: 5
-  m_Name: Cooldown
+  m_Name: Charges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3797,7 +3697,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CD
+  m_Text: CH
 --- !u!222 &580668843
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4183,7 +4083,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CH
+  m_Text: CD
 --- !u!222 &648607435
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4600,7 +4500,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CH
+  m_Text: CD
 --- !u!222 &784529176
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4742,7 +4642,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CD
+  m_Text: CH
 --- !u!222 &800095407
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4831,7 +4731,7 @@ GameObject:
   - component: {fileID: 834888186}
   - component: {fileID: 834888185}
   m_Layer: 5
-  m_Name: Cooldown
+  m_Name: Charges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4923,7 +4823,7 @@ GameObject:
   - component: {fileID: 901319562}
   - component: {fileID: 901319561}
   m_Layer: 5
-  m_Name: Cooldown
+  m_Name: Charges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5253,7 +5153,7 @@ GameObject:
   - component: {fileID: 952218269}
   - component: {fileID: 952218268}
   m_Layer: 5
-  m_Name: Charges
+  m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5611,7 +5511,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CD
+  m_Text: CH
 --- !u!222 &1002818446
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5685,7 +5585,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CH
+  m_Text: CD
 --- !u!222 &1006542481
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5876,7 +5776,7 @@ GameObject:
   - component: {fileID: 1101974014}
   - component: {fileID: 1101974013}
   m_Layer: 5
-  m_Name: Cooldown
+  m_Name: Charges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5968,7 +5868,7 @@ GameObject:
   - component: {fileID: 1102465990}
   - component: {fileID: 1102465989}
   m_Layer: 5
-  m_Name: Cooldown
+  m_Name: Charges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6128,7 +6028,7 @@ GameObject:
   - component: {fileID: 1107989600}
   - component: {fileID: 1107989599}
   m_Layer: 5
-  m_Name: Charges
+  m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6276,7 +6176,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CH
+  m_Text: CD
 --- !u!222 &1114271145
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6294,7 +6194,7 @@ GameObject:
   - component: {fileID: 1119256799}
   - component: {fileID: 1119256798}
   m_Layer: 5
-  m_Name: Cooldown
+  m_Name: Charges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6488,7 +6388,7 @@ GameObject:
   - component: {fileID: 1133524540}
   - component: {fileID: 1133524539}
   m_Layer: 5
-  m_Name: Cooldown
+  m_Name: Charges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6637,154 +6537,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1142999287}
---- !u!1001 &1157994161
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1886548392635298, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_Name
-      value: Player2
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: playerNumber
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: prefab
-      value: 
-      objectReference: {fileID: 4131782571366474, guid: 8ae3aeea460a3ef4cbdeee492d112389,
-        type: 2}
-    - target: {fileID: 0}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 4131782571366474, guid: 8ae3aeea460a3ef4cbdeee492d112389,
-        type: 2}
-    - target: {fileID: 114786213066132458, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: projectile
-      value: 
-      objectReference: {fileID: 114028676775518976, guid: 8ae3aeea460a3ef4cbdeee492d112389,
-        type: 2}
-    - target: {fileID: 114786213066132458, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: playerNumber
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786213066132458, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: enemy
-      value: 
-      objectReference: {fileID: 115901181}
-    - target: {fileID: 1886548392635298, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786213066132458, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: teamNumber
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 212997445364505408, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ee0cbddc8b1340041b1e4dce7ccd8af4,
-        type: 3}
-    - target: {fileID: 212997445364505408, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 58457228126062586, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: m_Radius
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4381422065261150, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114786213066132458, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: healthPoints
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 212997445364505408, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: m_DrawMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212997445364505408, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-    - target: {fileID: 212997445364505408, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: m_MaskInteraction
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 212997445364505408, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212997445364505408, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 212997445364505408, guid: c5793245393f97044ae7df331b040c4b,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: c5793245393f97044ae7df331b040c4b, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1159065692
 GameObject:
   m_ObjectHideFlags: 0
@@ -7022,7 +6774,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CD
+  m_Text: CH
 --- !u!222 &1219528676
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7108,7 +6860,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1237455977
 GameObject:
@@ -7189,7 +6941,7 @@ GameObject:
   - component: {fileID: 1257439227}
   - component: {fileID: 1257439226}
   m_Layer: 5
-  m_Name: Cooldown
+  m_Name: Charges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7337,7 +7089,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CH
+  m_Text: CD
 --- !u!222 &1264047678
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7423,7 +7175,7 @@ GameObject:
   - component: {fileID: 1270685054}
   - component: {fileID: 1270685053}
   m_Layer: 5
-  m_Name: Charges
+  m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7626,8 +7378,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55654845b54e874581041fbf5fa5dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 115901181}
-  player2: {fileID: 54392616}
+  player1: {fileID: 0}
+  player2: {fileID: 0}
 --- !u!114 &1291016205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7698,7 +7450,7 @@ RectTransform:
   - {fileID: 80694087}
   - {fileID: 1628244210}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7908,7 +7660,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CH
+  m_Text: CD
 --- !u!222 &1317055099
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8118,7 +7870,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CD
+  m_Text: CH
 --- !u!222 &1359618373
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8399,7 +8151,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CD
+  m_Text: CH
 --- !u!222 &1425110047
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8609,7 +8361,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CD
+  m_Text: CH
 --- !u!222 &1441251231
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8695,7 +8447,7 @@ GameObject:
   - component: {fileID: 1456498906}
   - component: {fileID: 1456498905}
   m_Layer: 5
-  m_Name: Charges
+  m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8787,7 +8539,7 @@ GameObject:
   - component: {fileID: 1458399865}
   - component: {fileID: 1458399864}
   m_Layer: 5
-  m_Name: Charges
+  m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9003,7 +8755,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CH
+  m_Text: CD
 --- !u!222 &1480206246
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9111,7 +8863,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CH
+  m_Text: CD
 --- !u!222 &1506336670
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9197,7 +8949,7 @@ GameObject:
   - component: {fileID: 1513115592}
   - component: {fileID: 1513115591}
   m_Layer: 5
-  m_Name: Charges
+  m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9357,7 +9109,7 @@ GameObject:
   - component: {fileID: 1533805761}
   - component: {fileID: 1533805760}
   m_Layer: 5
-  m_Name: Cooldown
+  m_Name: Charges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9573,7 +9325,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CH
+  m_Text: CD
 --- !u!222 &1550932629
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9647,7 +9399,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CD
+  m_Text: CH
 --- !u!222 &1572485585
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9789,7 +9541,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CH
+  m_Text: CD
 --- !u!222 &1585995462
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9863,7 +9615,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CH
+  m_Text: CD
 --- !u!222 &1599302230
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9958,7 +9710,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 72685db2373b55445b44ee6b939ef863, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee0cbddc8b1340041b1e4dce7ccd8af4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9983,7 +9735,7 @@ GameObject:
   - component: {fileID: 1615340258}
   - component: {fileID: 1615340257}
   m_Layer: 5
-  m_Name: Charges
+  m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10064,6 +9816,34 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &1625828663
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1625828664}
+  m_Layer: 0
+  m_Name: Player1Full
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1625828664
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1625828663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1628244209
 GameObject:
   m_ObjectHideFlags: 0
@@ -10632,6 +10412,48 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &1687378343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1687378344}
+  - component: {fileID: 1687378345}
+  m_Layer: 0
+  m_Name: GameManagement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1687378344
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1687378343}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4, y: 6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1687378345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1687378343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696009f600b2ed24b9815e0ff6e5160f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 114786213066132458, guid: c5793245393f97044ae7df331b040c4b,
+    type: 2}
 --- !u!1 &1692269537
 GameObject:
   m_ObjectHideFlags: 0
@@ -10711,7 +10533,7 @@ GameObject:
   - component: {fileID: 1700671932}
   - component: {fileID: 1700671931}
   m_Layer: 5
-  m_Name: Cooldown
+  m_Name: Charges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10803,7 +10625,7 @@ GameObject:
   - component: {fileID: 1701787933}
   - component: {fileID: 1701787932}
   m_Layer: 5
-  m_Name: Charges
+  m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10911,7 +10733,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1711314627
 MonoBehaviour:
@@ -11672,12 +11494,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9d7c890427860d14b8ffd1054fed48fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9642fe290a01a8048bf081033d14ff08, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 16, y: 9}
+  m_Size: {x: 16, y: 10}
   m_AdaptiveModeThreshold: 0.514
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -11693,7 +11515,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1850060407
 GameObject:
@@ -12004,6 +11826,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1892824507}
+--- !u!1 &1893585444
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1893585445}
+  m_Layer: 0
+  m_Name: Player2Full
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1893585445
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1893585444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1920973021
 GameObject:
   m_ObjectHideFlags: 0
@@ -12151,7 +12001,7 @@ GameObject:
   - component: {fileID: 1944455562}
   - component: {fileID: 1944455561}
   m_Layer: 5
-  m_Name: Charges
+  m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12617,7 +12467,7 @@ GameObject:
   - component: {fileID: 2010053494}
   - component: {fileID: 2010053493}
   m_Layer: 5
-  m_Name: Cooldown
+  m_Name: Charges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12916,7 +12766,7 @@ GameObject:
   - component: {fileID: 2049218599}
   - component: {fileID: 2049218598}
   m_Layer: 5
-  m_Name: Cooldown
+  m_Name: Charges
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13064,7 +12914,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CH
+  m_Text: CD
 --- !u!222 &2054612099
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13184,7 +13034,7 @@ GameObject:
   - component: {fileID: 2071385321}
   - component: {fileID: 2071385320}
   m_Layer: 5
-  m_Name: Charges
+  m_Name: Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13332,7 +13182,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CD
+  m_Text: CH
 --- !u!222 &2087427303
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13508,7 +13358,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: CH
+  m_Text: CD
 --- !u!222 &2113069395
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour {
     {
         Standard,
         XGunRight,
-        XGunLeft
+        XGunLeft,
     };
     private float worldWidth = 16;
     private float worldHeight = 10;
@@ -20,6 +20,7 @@ public class Projectile : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        transform.position = new Vector3(transform.position.x, transform.position.y, -0.1f);//Layer above the players
         if(teamNumber == 1)
         {
             GetComponent<SpriteRenderer>().color = new Color(0f, 1f, 0.1924231f);

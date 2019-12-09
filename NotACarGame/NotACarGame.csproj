@@ -297,10 +297,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Extensions\Vector2Extensions.cs" />
+    <Compile Include="Assets\Scripts\GameManagement.cs" />
     <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\ProjectileSpawner.cs" />
+    <Compile Include="Assets\Scripts\Trail.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="C:\Users\Maspenguin\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Styles\Main_Dark.uss" />
