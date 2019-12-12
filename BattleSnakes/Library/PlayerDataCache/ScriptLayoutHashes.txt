@@ -1,6 +1,6 @@
 WindowsStandalone
 PlayerPath?
-C:/Users/Maspenguin/Documents/Programming/Unity/NotACarGame/BattleSnakes/BattleSnakes.exe
+C:/Users/Maspenguin/Documents/Programming/Unity/BattleSnakes/BattleSnakes/BattleSnakes.exe
 SceneListBegin?
 Assets/Scene1.unity
 SceneListEnd?
